@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <p>сверстать инпут, по клику на кнопку Enter выводить алерт с содержимым текстового поля</p>
+  <input 
+    type="text" 
+    v-model="inputValue"
+    @keypress.enter="showMessage"
+  />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import {ref} from 'vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  setup() {
+    const inputValue = ref('')
+
+    function showMessage() {
+      alert(inputValue.value)
+    }
+
+    return {
+      inputValue,
+      showMessage
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
