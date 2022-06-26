@@ -13,7 +13,7 @@ export default {
   setup() {
     const inputValue = ref('')
 
-    function showMessage() {
+    const showMessage = () => {
       alert(inputValue.value)
     }
 
